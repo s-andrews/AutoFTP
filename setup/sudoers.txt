@@ -1,0 +1,2 @@
+apache ALL = (root) NOPASSWD: /usr/local/bin/setftppw [0-9]* *
+apache ALL = (root) NOPASSWD: /usr/bin/du -sh /usr/users/ftpusr[0-9]*

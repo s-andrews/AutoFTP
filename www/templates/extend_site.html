@@ -1,0 +1,55 @@
+<!-- TMPL_INCLUDE NAME="header.html" -->
+
+<h2>Extend Site</h2>
+
+<!-- TMPL_IF NAME=DURATION -->
+
+<p class="center">The site for <!-- TMPL_VAR NAME=USERNAME ESCAPE=HTML --> has been extended for a further <!-- TMPL_VAR NAME=DURATION ESCAPE=HTML --> days</p>
+
+<p class="center">
+<a href="ftp.pl">Return to FTP home page</a>
+</p>
+
+
+<!-- TMPL_ELSE -->
+
+<p>
+This form allows you to extend the lifespan of an existing FTP site.
+</p>
+
+<form action="ftp.pl" method=POST>
+<input type="hidden" name="action" value="extend">
+<input type="hidden" name="id" value="<!-- TMPL_VAR NAME=ID ESCAPE=HTML -->">
+<input type="hidden" name="secret" value="<!-- TMPL_VAR NAME=SECRET ESCAPE=HTML -->">
+
+<table>
+<tr>
+<th>FTP Site</th>
+<td><!-- TMPL_VAR NAME=USERNAME ESCAPE=HTML --></td>
+</tr>
+<tr>
+<th>New Duration</th>
+<td><select name="duration">
+<option value=1>1 day</option>
+<option value=2>2 days</option>
+<option value=3>3 days</option>
+<option value=7>1 week</option>
+<option value=14>2 weeks</option>
+<option value=31>1 month</option>
+<option value=62>2 months</option>
+</select>
+</td>
+</tr>
+<tr>
+<td colspan=2>
+<input type="submit" value="Extend Site">
+</td>
+</tr>
+</table>
+
+</form>
+
+<!-- /TMPL_IF -->
+
+
+<!-- TMPL_INCLUDE NAME="footer.html" -->

@@ -1,0 +1,27 @@
+<!-- TMPL_INCLUDE NAME="header.html" -->
+
+
+<!-- TMPL_IF NAME=WARNING -->
+<h2>There was a problem with your request</h2>
+
+<p class="error"><!-- TMPL_VAR NAME=WARNING ESCAPE=HTML --></p>
+
+<p>
+Hopefully the error shown above is self-explanatory and you can press the back button to fix this and try the request again.  If you're not able to correct this yourself then please report this to <a href="mailto:simon.andrews@babraham.ac.uk">Simon Andrews</a> (x6463) who should be able to help.
+</p>
+
+
+<!-- TMPL_ELSE -->
+<h2>The system encountered an error and can't complete your request</h2>
+
+<p class="error"><!-- TMPL_VAR NAME=ERROR ESCAPE=HTML --></p>
+
+<p>
+This is probably an internal error, and not something you are able to correct.  Please report this error to <a href="mailto:simon.andrews@babraham.ac.uk">Simon Andrews</a> (x6463) who should be able to help.
+</p>
+
+
+<!-- /TMPL_IF -->
+
+
+<!-- TMPL_INCLUDE NAME="footer.html" -->

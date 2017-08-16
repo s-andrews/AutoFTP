@@ -1,0 +1,40 @@
+<!-- TMPL_INCLUDE NAME="header.html" -->
+
+<h2>Check Sites</h2>
+
+<!-- TMPL_IF NAME=EMAIL -->
+
+<p class="center">A summary of all of your active sites has been sent to <!-- TMPL_VAR NAME=EMAIL ESCAPE=HTML --></p>
+
+<p class="center">
+<a href="ftp.pl">Return to FTP home page</a>
+</p>
+
+
+<!-- TMPL_ELSE -->
+
+<p>
+Enter your email below to have a summary of your active sites sent to you.  The summary will contain links to allow you to extend or delete your sites.
+</p>
+
+<form action="ftp.pl" method=POST>
+<input type="hidden" name="action" value="check">
+
+<table>
+<tr>
+<th>Email</th>
+<td><input name="email" type="text" size="40"></td>
+</tr>
+<tr>
+<td colspan=2>
+<input type="submit" value="Send Email">
+</td>
+</tr>
+</table>
+
+</form>
+
+<!-- /TMPL_IF -->
+
+
+<!-- TMPL_INCLUDE NAME="footer.html" -->

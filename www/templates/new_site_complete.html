@@ -1,0 +1,58 @@
+<!-- TMPL_INCLUDE NAME="header.html" -->
+
+<h2>New FTP Site Created</h2>
+
+<p>Your new FTP site is ready for use.  The site is currently empty, but you can upload data to it via FTP.</p>
+
+<p>
+You can connect to your site either using a dedicated FTP client (eg <a href="http://cyberduck.ch">Cyberduck</a> or <a href="http://filezilla-project.org">Filezilla</a>) or you can download from the site using a web browser. Data upload will generally require the use of a proper FTP client.
+</p>
+
+<p>
+The table below shows the connection information you need.  This information has also been sent to you in an email.  If you send these details to your collaborators they too will have access to the site.
+</p>
+
+<p>
+This FTP site allows both read and write access to anyone who connects to it.  This means you can use to send or receive data with your collaborators. At the end of the period you specified the site will be shut down and the data on it will be deleted automatically (you'll get a warning email the day before).  There are no file protection measures on this site, so anyone who has the login details can alter or delete any of the data on the site. <strong>Do not use this site to store your only copy of any data</strong>.
+</p>
+
+<!-- TMPL_IF NAME=WEB -->
+You have chosen to allow web (HTTP) access to your site.  You can therefore use the web URL below to access the data on your site through a browser.  This access is not password protected and anyone who knows the URL (which isn't hard to guess) can read your data via this method.  Only use this option if your data does not need to be secure.
+<!-- /TMPL_IF -->
+
+<h2>Connection Details</h2>
+
+<table>
+<tr>
+<th>Hostname</th>
+<td>ftp2.babraham.ac.uk</td>
+</tr>
+<tr>
+<th>Username</th>
+<td><!-- TMPL_VAR NAME=USERNAME ESCAPE=HTML --></td>
+</tr>
+<tr>
+<th>Password</th>
+<td><!-- TMPL_VAR NAME=PASSWORD ESCAPE=HTML --></td>
+</tr>
+<tr>
+<th>FTP URL</th>
+<td><a href="ftp://<!-- TMPL_VAR NAME=USERNAME ESCAPE=HTML -->:<!-- TMPL_VAR NAME=PASSWORD ESCAPE=HTML -->@ftp2.babraham.ac.uk">ftp://<!-- TMPL_VAR NAME=USERNAME ESCAPE=HTML -->:<!-- TMPL_VAR NAME=PASSWORD ESCAPE=HTML -->@ftp2.babraham.ac.uk</a>
+</td>
+</tr>
+<!-- TMPL_IF NAME=WEB -->
+<tr>
+<th>HTTP URL</th>
+<td><a href="http://ftp2.babraham.ac.uk/<!-- TMPL_VAR NAME=USERNAME ESCAPE=HTML -->/">http://ftp2.babraham.ac.uk/<!-- TMPL_VAR NAME=USERNAME ESCAPE=HTML -->/</a>
+</td>
+</tr>
+<!-- /TMPL_IF -->
+
+</table>
+
+<p class="center">
+<a href="ftp.pl">Return to FTP home page</a>
+</p>
+
+
+<!-- TMPL_INCLUDE NAME="footer.html" -->

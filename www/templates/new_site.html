@@ -1,0 +1,60 @@
+<!-- TMPL_INCLUDE NAME="header.html" -->
+
+<h2>Create New Site</h2>
+
+<p>
+Fill in the details below to create a new FTP site.  Login details for the newly created site will be shown on screen and sent to you in an email which you can forward to your collaborators.
+</p>
+
+<p>
+Please only request a site for as long as you actually need it since space on the server is limited and data which is no longer required needs to be cleaned up.  You will be notified just before your site is removed - and you will have the option to extend the site at that time.
+</p>
+
+<p>
+If you need a site to be available for a much longer period then please contact bioinformatics who can arrange for custom accounts to be set up on this system.
+</p>
+
+<form action="ftp.pl" method=POST>
+<input type="hidden" name="action" value="new">
+
+<table>
+<tr>
+<th>Email</th>
+<td><input name="email" type="text" size="40">
+</td>
+</tr>
+<tr>
+<th>Duration</th>
+<td><select name="duration">
+<option value=1>1 day</option>
+<option value=2>2 days</option>
+<option value=3>3 days</option>
+<option value=7>1 week</option>
+<option value=14>2 weeks</option>
+<option value=31>1 month</option>
+<option value=62>2 months</option>
+</select>
+</td>
+</tr>
+<tr>
+<th>Allow HTTP access*</th>
+<td><input type="checkbox" name="web"></td>
+</tr>
+<tr>
+<th>Site name (optional)</th>
+<td><input name="name" type="text" size="40">
+</td>
+</tr>
+<tr>
+<td colspan=2>
+<input type="submit" value="Create Site">
+</td>
+</tr>
+</table>
+
+</form>
+
+<p>* If you choose to allow HTTP access you will be sent a URL under which the data on your site will be visible.  HTTP access is not password protected so anyone who knows the URL will be able to see the files on the site.  It is download only and can't be used to upload data into the site.</p>
+
+
+<!-- TMPL_INCLUDE NAME="footer.html" -->

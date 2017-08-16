@@ -1,0 +1,47 @@
+<!-- TMPL_INCLUDE NAME="header.html" -->
+
+<h2>Delete Site</h2>
+
+<!-- TMPL_IF NAME=CONFIRM -->
+
+<p class="center">The site for <!-- TMPL_VAR NAME=USERNAME ESCAPE=HTML --> has been flagged for deletion and will be removed tonight.</p>  
+<p class="center">If you want to reverse this action then <a href="ftp.pl?action=extend&id=<!-- TMPL_VAR NAME=ID ESCAPE=HTML -->&secret=<!-- TMPL_VAR NAME=SECRET ESCAPE=HTML -->">click here</a> or use the link to extend the site in the email which you were sent.</p>
+
+<p class="center">
+<a href="ftp.pl">Return to FTP home page</a>
+</p>
+
+
+<!-- TMPL_ELSE -->
+
+<p>
+Are you sure that you want to delete the FTP site for <!-- TMPL_VAR NAME=USERNAME ESCAPE=HTML -->?
+</p>
+
+<form action="ftp.pl" method=POST>
+<input type="hidden" name="action" value="delete">
+<input type="hidden" name="id" value="<!-- TMPL_VAR NAME=ID ESCAPE=HTML -->">
+<input type="hidden" name="secret" value="<!-- TMPL_VAR NAME=SECRET ESCAPE=HTML -->">
+
+<table>
+<tr>
+<th>FTP Site</th>
+<td><!-- TMPL_VAR NAME=USERNAME ESCAPE=HTML --></td>
+</tr>
+<tr>
+<th>Yes, I'm sure</th>
+<td><input type="checkbox" name="confirm"></td>
+</tr>
+<tr>
+<td colspan=2>
+<input type="submit" value="Delete Site">
+</td>
+</tr>
+</table>
+
+</form>
+
+<!-- /TMPL_IF -->
+
+
+<!-- TMPL_INCLUDE NAME="footer.html" -->

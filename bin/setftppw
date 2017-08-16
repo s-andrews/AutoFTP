@@ -1,0 +1,15 @@
+#!/usr/bin/perl
+use warnings;
+use strict;
+
+my ($number,$password,$web) = @ARGV;
+
+open (PASSWD,"| /usr/bin/passwd --stdin ftpusr$number") or die $!;
+
+print PASSWD $password;
+
+close PASSWD or die $!;
+
+if ($web) {
+    system("chmod 755 /usr/users/ftpusr$number") == 0 or die "Failed to set permissions for ftpusr$number";
+}
