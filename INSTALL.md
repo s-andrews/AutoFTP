@@ -1,46 +1,69 @@
-Stupidly rough install instructions
------------------------------------
+AutoFTP
+=======
 
-* Start from a standard CentOS6 base image with all normal changes applied (especially auto-updates!)
+Stupidly rough installation instructions
+----------------------------------------
 
-* Clone AutoFTP git repository into /srv/
+* Start from a standard CentOS6 base image with all normal changes applied _(especially auto-updates!)_
 
-* Run add_ftp_users to create ftpusr users and vsftp config files
+* Clone AutoFTP git repository into `/srv/`
 
-* Copy sudoers.txt to /etc/sudoers.d/ftpsudoers (NB Do NOT put dots in the sudoers.d file name otherwise it won't work)
+* Run `add_ftp_users` to create `ftpusr` users and `vsftp` config files
 
-* mysql -u root -p < [mysql template]
+* Copy `sudoers.txt` to `/etc/sudoers.d/ftpsudoers` (NB Do NOT put dots in the `sudoers.d` file name otherwise it won't work)
 
-* Copy httpd conf file to /etc/httpd/conf.d/
+* ```bash
+  mysql -u root -p < [mysql template]
+  ```
 
-* Copy vsftpd.conf file into /etc/vsftpd/
+* Copy `httpd conf` file to `/etc/httpd/conf.d/`
 
-* Copy setftppw to /usr/local/bin/ and set permissions to 755
+* Copy `vsftpd.conf` file into `/etc/vsftpd/`
 
-* Copy index.html to /var/www/html/
+* Copy `setftppw` to `/usr/local/bin/` and set permissions to `755`
 
-* Copy ftp.pl to /var/www/cgi-bin/ and set permissions to 755
+* Copy `index.html` to `/var/www/html/`
 
-* Run system-config-firewall-tui and allow ssh/ftp/http/https
+* Copy `ftp.pl` to `/var/www/cgi-bin/` and set permissions to `755`
 
-* perl -MCPAN -e 'install HTML::Template'
+* Run `system-config-firewall-tui` and allow `ssh`/`ftp`/`http`/`https`
 
-* yum install perl-Date-Calc
+* ```bash
+  perl -MCPAN -e 'install HTML::Template'
+  ```
 
-* perl -MCPAN -e 'install Mail::Sendmail'
+* ```bash
+  yum install perl-Date-Calc
+  ```
 
-* perl -MCPAN -e 'install Net::Subnet'
+* ```bash
+  perl -MCPAN -e 'install Mail::Sendmail'
+  ```
 
-* If there are odd problems with Net::Subnet then install 'Subnet'
+* ```bash
+  perl -MCPAN -e 'install Net::Subnet'
+  ```
 
-* cat cleanup.cron | crontab
+* If there are odd problems with `Net::Subnet` then install `Subnet`
 
-* cp ftp_cleanup.pl /usr/local/bin/
+* ```bash
+  cat cleanup.cron | crontab
+  ```
 
-* chkconfig httpd on
+* ```bash
+  cp ftp_cleanup.pl /usr/local/bin/
+  ```
 
-* chkconfig mysqld on
+* ```bash
+  chkconfig httpd on
+  ```
 
-* Edit /etc/sysconfig/selinux - set to disabled
+* ```bash
+  chkconfig mysqld on
+  ```
+
+* Edit `/etc/sysconfig/selinux` - set to disabled
 
 * Reboot.
+
+* Enjoy! :tada:
